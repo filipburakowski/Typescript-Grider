@@ -1,8 +1,10 @@
-import { CsvFileReader } from './CsvFileReader';
+import { MatchReader } from './MatchReader';
 import { MatchResult } from './MatchResult';
 
-const reader = new CsvFileReader('football.csv');
+const reader = new MatchReader('football.csv');
 reader.read();
+
+const dateOfFirstMatch = reader.data[0][0];
 
 let manUnitedWins = 0;
 
@@ -14,3 +16,4 @@ for (let match of reader.data) {
   }
 }
 console.log(`Man United won ${manUnitedWins} games`);
+console.log(`First match is on ${dateOfFirstMatch}`);
